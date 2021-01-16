@@ -16,13 +16,17 @@ function ProgressBar({ completion }) {
   );
 }
 
-function Editor({ text }) {
+function Editor({ text, onTextChange}) {
+
+  function handleTextChange(event) {
+    onTextChange(event.target.value)
+  }
   return (
     <div className="flex flex-column mv2">
       <label htmlFor="editor" className="mv2">
         Enter your text
       </label>
-      <textarea value={text} id="editor" />
+      <textarea value={text} id="editor" onChange={handleTextChange} />
     </div>
   );
 }
@@ -31,10 +35,27 @@ function countWords(text) {
   return text ? text.match(/\w+/g).length : 0;
 }
 
+function makeFakeRequest() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() > 0.5) {
+        resolve('success')
+      } else {
+        reject('failure')
+      }
+    }, 500)
+  })
+}
+
 class WordCounter extends React.Component {
   constructor() {
     super();
     this.state = { text: "" };
+    this.handleTextChange = this.handleTextChange.bind(this)
+  }
+
+  handleTextChange(currentText) {
+    this.setState(() => ({text: currentText}))
   }
 
   render() {
@@ -45,7 +66,7 @@ class WordCounter extends React.Component {
     return (
       <form className="measure pa4 sans-serif">
         {" "}
-        <Editor text={text} />
+        <Editor text={text} onTextChange = {this.handleTextChange} />
         <div className="flex mt3">
           <Counter count={wordCount} />
           <ProgressBar completion={progress} />{" "}
