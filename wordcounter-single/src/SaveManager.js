@@ -1,4 +1,8 @@
-import React from "react";
+import React from 'react';
+import SaveButton from './SaveButton';
+import AlertBox from './AlertBox';
+import { IDLE, SUCCESS, FAILURE, WAITING } from './saveStatus';
+
 class SaveManager extends React.Component {
   constructor() {
     super();

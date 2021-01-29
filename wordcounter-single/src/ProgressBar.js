@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function ProgressBar({ completion }) {
   const percentage = completion * 100;

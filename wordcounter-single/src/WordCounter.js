@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import ProgressBar from './ProgressBar';
 import countWords from './countWords';
 import makeFakeRequest from './makeFakeRequest';
@@ -22,24 +22,6 @@ function Editor({ text, onTextChange }) {
     </div>
   );
 }
-
-function AlertBox({ status }) {
-  if (status === FAILURE) {
-    return <div className="mv2">Save Failed</div>;
-  } else if (status === SUCCESS) {
-    return <div className="mv2"> Save Successful</div>;
-  } else if (status === WAITING) {
-    return <div className="mv2"> Saving...</div>;
-  } else {
-    return null;
-  }
-}
-
-///Note to self; move this to an ADT once I move to ReScript
-const SUCCESS = "SUCCESS";
-const FAILURE = "FAILURE";
-const WAITING = "WAITING";
-const IDLE = "IDLE";
 
 class WordCounter extends React.Component {
   constructor() {
