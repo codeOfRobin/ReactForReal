@@ -13,6 +13,6 @@ describe('the counting Function', () => {
     
     it('counts other string', () => {
         expect(countWords('do bee do bee dooo')).toBe(5)
-    })
+    })  
     
 }) 

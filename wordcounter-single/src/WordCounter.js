@@ -5,24 +5,6 @@ import makeFakeRequest from './makeFakeRequest';
 import SaveManager from './SaveManager';
 import SaveButton from './SaveButton';
 
-function Counter({ count }) {
-  return <p className="mb2">Word Count: {count}</p>;
-}
-
-function Editor({ text, onTextChange }) {
-  function handleTextChange(event) {
-    onTextChange(event.target.value);
-  }
-  return (
-    <div className="flex flex-column mv2">
-      <label htmlFor="editor" className="mv2">
-        Enter your text
-      </label>
-      <textarea value={text} id="editor" onChange={handleTextChange} />
-    </div>
-  );
-}
-
 class WordCounter extends React.Component {
   constructor() {
     super();
