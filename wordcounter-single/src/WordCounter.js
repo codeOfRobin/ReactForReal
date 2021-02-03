@@ -3,7 +3,8 @@ import ProgressBar from './ProgressBar';
 import countWords from './countWords';
 import makeFakeRequest from './makeFakeRequest';
 import SaveManager from './SaveManager';
-import SaveButton from './SaveButton';
+import Editor from './Editor'
+import Counter from './Counter'
 
 class WordCounter extends React.Component {
   constructor() {
