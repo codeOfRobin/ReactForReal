@@ -5,6 +5,8 @@ import {
     UNFAVORITED
 } from  './actions'
 
+import {combineReducers} from 'redux';
+
 export function movies(state = [], action) {
     switch (action.type) {
         case MOVIES_LOADED:
@@ -32,11 +34,15 @@ export function filter(state = false, action) {
     }
 }
 
-export function favorites(state = [], action) {
+export function favorites(state=[], action) {
     switch (action.type) {
         case FAVORITED:
             return [...state, action.movieID]
-        default:
+        case UNFAVORITED:
+            return state.filter(id => id !== action.movieID)
+        default: 
             return state
     }
 }
+
+export default combineReducers({movies, filter, favorites, loading})
