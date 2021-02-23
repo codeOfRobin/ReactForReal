@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {FILTER_CHANGED} from './actions';
-improt Checkbox from './Checkbox';
+import Checkbox from './Checkbox';
 
 function mapStateToProps(state) { return {
     checked: state.filter
@@ -12,3 +12,5 @@ function mapDispatchToProps(dispatch) { return {
       dispatch({ type: FILTER_CHANGED, filter });
 } };
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkbox);
